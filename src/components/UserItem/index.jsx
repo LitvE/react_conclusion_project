@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import UserCard from "../UserCard";
 import Icon from '@mdi/react';
 import { mdiCheckCircle } from '@mdi/js';
@@ -9,11 +9,18 @@ function UserItem (props){
         user,
         clickHandler,
     } = props;
-    
+
+    const [isClicked, setIsClicked] = useState(false);
+
+    const onClickHandler = () => {
+        setIsClicked(!isClicked);
+        clickHandler();
+    };
+
     return(
         <div className={styles.userItemContainer}>
             <UserCard user={user}/>
-            <Icon path={mdiCheckCircle} className={styles.iconStyle} onClick={clickHandler}/>
+            <Icon path={mdiCheckCircle} className={isClicked ?styles.iconStyle2 : styles.iconStyle1} onClick={onClickHandler}/>
         </div>
         
     );
