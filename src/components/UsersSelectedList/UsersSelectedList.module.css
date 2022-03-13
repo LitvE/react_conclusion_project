@@ -1,0 +1,11 @@
+.container{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.container > p {
+    padding-right: 10px;
+}
